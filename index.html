@@ -1,0 +1,61 @@
+<html>
+
+<head>
+    <style>
+        body {
+            font-family: monospace;
+            font-variant: small-caps;
+            font-size: 20px;
+        }
+        
+        .block {
+            padding-left: 3px;
+            margin-top: 10px;
+            margin-left: 6px;
+            margin-bottom: 10px;
+            border-left: 8px solid rgb(131, 174, 255);
+        }
+        
+        .block_name {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            /* font-size: 22px; */
+            /* text-decoration: underline; */
+            /* text-decoration-color: blue; */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="json">
+
+    </div>
+    <script src="jquery.js"></script>
+    <script src="myjson.js"></script>
+    <script>
+        var someJson = {
+            hallo: "welt",
+            zahl: 12,
+            booleantest: true,
+            inner: {
+                hallo: "welt",
+                zahl: 12,
+                inner: {
+                    hallo: "welt",
+                    zahl: 12,
+                    booleantest: true
+                },
+                booleantest: true
+            },
+            titel: [1, "wunder", "welt"]
+        }
+
+        $(document).ready(function() {
+            Parser.htmlify(someJson, $("#json"));
+            console.log(Parser.htmlParse($("#json")));
+        });
+    </script>
+</body>
+
+</html>
